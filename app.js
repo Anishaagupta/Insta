@@ -3,7 +3,7 @@ const { Mongoose } = require('mongoose');
 const app= express();
 const PORT = process.env.PORT || 5000
 const mongoose = require('mongoose');
-const {MONGODB} = require('./keys');
+const {MONGODB} = require('./config/keys');
 
 const customMiddleware = (req,res,next) => {
     console.log("Middleware is Running in between.");
@@ -29,7 +29,7 @@ app.use(require('./routes/post'));
 app.use(require('./routes/user'));
 
 if(process.env.NODE_ENV=="production"){
-    app.use(express.static('client/build'))
+    app.use(express.static('insta/build'))
     const path = require("path")
     app.get("*",(req,res) =>{
         res.sendFile(path.resolve(__dirname,'insta','build','index.html'))
