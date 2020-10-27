@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "heroku-postbuild": "NPM CONFIG PRODUCTION=false npm install --prefix insta && npm run build --prefix insta",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix insta && npm run build --prefix insta",
     "server": "nodemon app.js",
     "client": "npm run start --prefix insta",
     "dev": "concurrently \"npm run client\" \"npm run start\"",
